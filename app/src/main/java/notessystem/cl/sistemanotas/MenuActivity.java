@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import java.util.LinkedList;
 
@@ -18,6 +19,7 @@ public class MenuActivity extends AppCompatActivity {
     private ArrayAdapter<Score> listAdapter;
     private EditText txtScore;
     private EditText txtPond;
+    private TextView lblCurrentPond;
     private ListView lvScores;
 
     @Override
@@ -31,6 +33,7 @@ public class MenuActivity extends AppCompatActivity {
         );
         txtScore = findViewById(R.id.txtScore);
         txtPond = findViewById(R.id.txtPond);
+        lblCurrentPond = findViewById(R.id.lblCurrentPond);
         lvScores = findViewById(R.id.lvScores);
         lvScores.setAdapter(listAdapter);
     }
@@ -61,6 +64,9 @@ public class MenuActivity extends AppCompatActivity {
                     txtScore.setText(null);
                     txtPond.setText(null);
                     txtScore.requestFocus();
+                    lblCurrentPond.setText("Ponderación Actual: "
+                            +Data.getInstance().getPondCount()+'%');
+
                 }
                 else
                     MainActivity.showToastMsg(this, "No puede pasarse del límite " +
