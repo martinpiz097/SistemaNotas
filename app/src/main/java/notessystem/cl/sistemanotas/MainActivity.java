@@ -36,6 +36,7 @@ import notessystem.cl.sistemanotas.base.Data;
                 Intent i = new Intent(MainActivity.this, MenuActivity.class);
                 startActivity(i);
             }
+
             else {
                 showToastMsg(this, "Contraseña incorrecta");
                 txtPassw.selectAll();
