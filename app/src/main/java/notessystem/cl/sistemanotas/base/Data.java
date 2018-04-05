@@ -67,7 +67,7 @@ public class Data {
             }
         }
 
-        return rojos;
+        return rojos*100/listScores.size();
     }
 
     /*Obtener porcentaje de azules*/
@@ -79,7 +79,7 @@ public class Data {
             }
         }
 
-        return azules;
+        return azules*100/listScores.size();
     }
 
 
