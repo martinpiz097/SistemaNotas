@@ -26,10 +26,10 @@ public class Data {
         return PASSW;
     }
 
-    public int getPondCount() {
+    public byte getPondCount() {
         if (listScores.size() == 0)
             return 0;
-        int pondTotal = 0;
+        byte pondTotal = 0;
         for (Score s:
              listScores) {
             pondTotal+=s.getWeighing();

@@ -56,6 +56,7 @@ public class MenuActivity extends AppCompatActivity {
                 boolean added =
                         Data.getInstance().addScore(score, pond);
 
+                byte totalPond = Data.getInstance().getPondCount();
                 if (added) {
                     lvScores.setAdapter(new ArrayAdapter<Score>(
                             this, android.R.layout.simple_list_item_1,
@@ -65,12 +66,14 @@ public class MenuActivity extends AppCompatActivity {
                     txtPond.setText(null);
                     txtScore.requestFocus();
                     lblCurrentPond.setText("Ponderación Actual: "
-                            +Data.getInstance().getPondCount()+'%');
+                            +totalPond+'%');
 
                 }
-                else
+                else {
+                    byte difPond = (byte) (totalPond-pond);
                     MainActivity.showToastMsg(this, "No puede pasarse del límite " +
-                            "(100%) de ponderación");
+                            "(100%) de ponderación, Se ha excedido en "+difPond+'%');
+                }
             }catch (NumberFormatException ex) {
                 MainActivity.showToastMsg(this, "Formato incorrecto");
                 txtScore.selectAll();
